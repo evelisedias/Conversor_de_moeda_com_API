@@ -1,0 +1,90 @@
+:root{
+    --branco: #ffffff;
+    --cinza: #aaa;
+    --preto: black;
+}
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-image: url(/_img/fundo.png);
+    background-size: 211vh;
+    background-repeat: no-repeat;
+    background-position: absolute right;
+}
+
+/* Cabeçalho*/
+header .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 20px;
+}
+
+
+header .logo{
+
+    
+    margin-left: 30px;
+    font-family: 'Arial black';
+    font-size: 40px;
+    color: rgb(34, 34, 34)
+
+}
+.br, .eua, .euro {
+    margin-left: 20px;
+    height: 40px;
+    margin-top: 10px;
+    border-radius: 100%;
+}
+
+/*Body*/
+select{
+    width: 125px;
+    height: 40px;
+    margin-top: 200px;
+    margin-left: 100px;
+    margin-right: 10px;
+    font-size: 20px;
+
+    cursor: pointer;
+    transition: .3s ease all;
+    
+}
+
+option{
+    text-align: center;
+    font-size: 20px;
+}
+
+input{
+    width: 200px;
+    height: 40px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.botao{
+    width: 200px;
+    height: 40px;
+    margin-top: 50px;
+    margin-left: 400px;
+    font-size: 20px;
+    
+    background-color: rgba(2, 2, 2, 0.664);
+    color: var(--branco);
+    border: none;
+
+    cursor: pointer;
+    transition: .3s ease all;
+}
+
+.botao:hover{
+    background-color: var(--branco);
+    color: var(--preto);
+    font-family: 'arial black';
+}
+
+

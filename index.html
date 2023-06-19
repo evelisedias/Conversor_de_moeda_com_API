@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Moedas</title>
+    <link rel="stylesheet" href="_style/main.css"/>
+    <script src="_js/main.js"></script>
+</head>
+<body>
+    <header>
+    <!--Barra superior-->
+        <div class= "container">
+            <h1 class="logo">
+                Conversor de Moedas
+            </h1>
+            <div class="img">
+                <img class="br" src="/_img/brasil.png" href="bandeira do Brasil">
+                <img class="eua" src="/_img/eua.png" href="bandeira do EUA">
+                <img class="euro" src="/_img/euro.png" href="bandeira da EURO">
+            </div>
+    </header>
+    <div class="opcao"></div>
+        <!--Seleciona a opção de conversão-->
+        <select id="selecao">
+        <option>
+            Real 
+        </option><option>
+            Dólar USA
+        </option>
+        <option>
+            Euro
+        </option>
+        <option>
+            Libra
+        </option>
+        </select>
+        <!-- Insere o valor para conversão-->
+        <input type="number" id="valor"/>
+
+        <!--Seleciona a opção de resultado da conversão-->
+        <select id="selecao">
+        <option>
+            Real 
+        </option>    
+        <option>
+            Dólar USA
+        </option>
+        <option>
+            Euro
+        </option>
+        <option>
+            Libra
+        </option>
+        </select>
+        <!-- valor da conversão-->
+        <input type="number" id="resultado"/>
+        <div>
+            <button class="botao" onclick="Converter()">Converter</button>
+        </div>
+    </div>
+</body>
+</html>
