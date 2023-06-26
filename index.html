@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conversor de Moedas</title>
     <link rel="stylesheet" href="_style/main.css"/>
-    <script src="_js/main.js"></script>
+    
 </head>
 <body>
     <header>
@@ -24,15 +24,16 @@
     <div class="opcao"></div>
         <!--Seleciona a opção de conversão-->
         <select id="selecao">
-        <option>
+        <option id="br">
             Real 
-        </option><option>
+        </option>
+        <option id="dolar">
             Dólar USA
         </option>
-        <option>
+        <option id="euro">
             Euro
         </option>
-        <option>
+        <option id="libra">
             Libra
         </option>
         </select>
@@ -40,7 +41,7 @@
         <input type="number" id="valor"/>
 
         <!--Seleciona a opção de resultado da conversão-->
-        <select id="selecao">
+        <select id="resultado">
         <option>
             Real 
         </option>    
@@ -55,10 +56,14 @@
         </option>
         </select>
         <!-- valor da conversão-->
-        <input type="number" id="resultado"/>
+        <input type="number" id="valorConvertido"/>
         <div>
             <button class="botao" onclick="Converter()">Converter</button>
         </div>
     </div>
+    
 </body>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="_js/main.js"></script>
+
 </html>
