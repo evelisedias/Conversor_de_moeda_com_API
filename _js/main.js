@@ -74,6 +74,6 @@ $.ajax({
 
     // Adicione os eventos onchange nos elementos do formulário
     
-    document.getElementById("valor").onchange = Converter;
-    document.getElementById("selecao").onchange = Converter;
-    document.getElementById("convertido").onchange = Converter;
+    document.getElementById("valor").onchange;
+    document.getElementById("selecao").onchange ;
+    document.getElementById("convertido").onchange ;
