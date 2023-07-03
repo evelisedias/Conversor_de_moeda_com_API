@@ -63,17 +63,18 @@ $.ajax({
         valorReal = valorConverter / libra;
       } else if (selecao === "Euro" && convertido === "Libra") {
         valorReal = (valorConverter / libra) * euro;
-      }
+      
     } else if (selecao === "Libra" && convertido === "Libra"){
         valorReal = valorConverter;
     }
       var elementoValorConvertido = document.getElementById("valorConvertido");
       var valorConvertido = valorReal.toFixed(2);
       elementoValorConvertido.value = valorConvertido;
-} 
+    } 
+}
 
     // Adicione os eventos onchange nos elementos do formulário
     
     document.getElementById("valor").onchange;
     document.getElementById("selecao").onchange ;
-    document.getElementById("convertido").onchange ;
+    document.getElementById("convertido").onchange;
