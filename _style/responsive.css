@@ -1,0 +1,22 @@
+@media screen {
+    header .container {
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    header .logo {
+      margin: 10px 0;
+      text-align: center;
+    }
+    
+    select, input {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .botao {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  
