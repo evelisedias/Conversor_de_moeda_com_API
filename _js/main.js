@@ -28,7 +28,7 @@ $.ajax({
   
       //Real
       if (selecao === "Dólar USA" && convertido === "Real") {
-        valorReal = valorConverter / dolar;
+        valorReal = valorConverter * dolar;
       } else if (selecao === "Euro" && convertido === "Real") {
         valorReal = valorConverter * euro;
       } else if (selecao === "Libra" && convertido === "Real") {
@@ -38,7 +38,7 @@ $.ajax({
       
     //Dolar
       } else if (selecao === "Real" && convertido === "Dólar USA") {
-        valorReal = valorConverter * dolar;
+        valorReal = valorConverter / dolar;
       } else if (selecao === "Euro" && convertido === "Dólar USA") {
         valorReal = (valorConverter * euro) / dolar;
       } else if (selecao === "Libra" && convertido === "Dólar USA") {
