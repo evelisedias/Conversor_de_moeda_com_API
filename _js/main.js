@@ -1,63 +1,79 @@
-//inserindo api da open exchange
+$.ajax({
+    type: "GET",
+    dataType: "JSON",
+    url: "https://economia.awesomeapi.com.br/json/all",
+    success: function (data) {
+      resultado = data;
+      console.log(data)
+    },
+    error: function (data) {
+      alert('Erro! O site não conseguiu carregar os valores atuais da cotação. Tente novamente mais tarde. :(');
+    }
+  });
 
-$.get('https://openexchangerates.org/api/latest.json', { app_id:'[[app:9bd9fd71dd564af0b3e356a9d94127d8]]', base: 'BRL'}, function(data) {
-    const rates = data.rates;
-    Converter(rates);
-});
+  
+  
+  function Converter() {
+    var valorElemento = document.getElementById("valor").value;
+    var valorConverter = parseFloat(valorElemento);
+    var selecao = document.getElementById("selecao").value;
+    var convertido = document.getElementById("convertido").value;
+  
+    if (resultado) {
+      var dolar = resultado["USD"]["bid"];
+      var euro = resultado["EUR"]["bid"];
+      var libra = resultado["GBP"]["bid"];
+  
+      var valorReal; // Declaração da variável valorReal
+  
+      //Real
+      if (selecao === "Dólar USA" && convertido === "Real") {
+        valorReal = valorConverter / dolar;
+      } else if (selecao === "Euro" && convertido === "Real") {
+        valorReal = valorConverter * euro;
+      } else if (selecao === "Libra" && convertido === "Real") {
+        valorReal = valorConverter * libra;
+      } else if (selecao === "Real" && convertido === "Real"){
+            valorReal = valorConverter;
+      
+    //Dolar
+      } else if (selecao === "Real" && convertido === "Dólar USA") {
+        valorReal = valorConverter * dolar;
+      } else if (selecao === "Euro" && convertido === "Dólar USA") {
+        valorReal = (valorConverter * euro) / dolar;
+      } else if (selecao === "Libra" && convertido === "Dólar USA") {
+        valorReal = (valorConverter * libra) / dolar;
+     } else if (selecao === "Dólar USA" && convertido === "Dólar USA"){
+        valorReal = valorConverter;
+  
+    //Euro
+      } else if (selecao === "Dólar USA" && convertido === "Euro") {
+        valorReal = (valorConverter * dolar) / euro;
+      } else if (selecao === "Real" && convertido === "Euro") {
+        valorReal = valorConverter / euro;
+      } else if (selecao === "Libra" && convertido === "Euro") {
+        valorReal = (valorConverter * libra) / euro;
+    } else if (selecao === "Euro" && convertido === "Euro"){
+        valorReal = valorConverter;
+  
+    //Libra
+      } else if (selecao === "Dólar USA" && convertido === "Libra") {
+        valorReal = (valorConverter * dolar) / libra;
+      } else if (selecao === "Real" && convertido === "Libra") {
+        valorReal = valorConverter / libra;
+      } else if (selecao === "Euro" && convertido === "Libra") {
+        valorReal = (valorConverter / libra) * euro;
+      }
+    } else if (selecao === "Libra" && convertido === "Libra"){
+        valorReal = valorConverter;
+    }
+      var elementoValorConvertido = document.getElementById("valorConvertido");
+      var valorConvertido = valorReal.toFixed(2);
+      elementoValorConvertido.value = valorConvertido;
+} 
 
-
-//Dando funcao ao botao converter
-function Converter(rates) {
-    var valorElemento = document.getElementById("valor") //Pega a informacao do id valor dentro do html
-    var valor = valorElemento.value; // .value pega o valor digitado
-    var valorConverter = parseFloat(valor); //transforma o valor digitado em float
+    // Adicione os eventos onchange nos elementos do formulário
     
-    var selecao = document.getElementById("selecao").value; //Pega a informacao e o valor do id selecao dentro do html
-    var resultado = document.getElementById("resultado").value; //Pega a informacao e o valor do id resultado dentro do html
-
-    // Cotacao do real em relaçao as demais moedas
-if(selecao === "Dólar USA" && resultado === "Real"){
-    valorEmReal = valorConverter / rates.USD;
-    
-}else if (selecao === "Euro" && resultado === "Real"){
-    valorEmReal = valorConverter / rates.EUR;
-    
- }else if (selecao === "Libra" && resultado === "Real"){
-    valorEmReal = valorConverter /rates.GBP;
-}
-//Cotacao do dolar em relacao as demais moedas
-else if(selecao === "Real" && resultado === "Dólar USA"){
-    valorEmReal = valorConverter * rates.USD;
-     
-}else if (selecao === "Euro" && resultado === "Dólar USA"){
-    valorEmReal = (valorConverter * rates.EUR) / rates.USD;
-     
-}else if (selecao === "Libra" && resultado === "Dólar USA"){
-    valorEmReal = (valorConverter / rates.GBP)* rates.USD;
-}
- //cotacao euro em relacao as demais moedas
-else if(selecao === "Dólar USA" && resultado === "Euro"){
-    valorEmReal = (valorConverter * rates.USD) / rates.EUR;
-     
-}else if (selecao === "Real" && resultado === "Euro"){
-    valorEmReal = valorConverter / rates.EUR ;
-     
-}else if (selecao === "Libra" && resultado === "Euro"){
-    valorEmReal = (valorConverter * rates.GBP) / rates.EUR ;
-}
-//cotacao da libra em relacao as demais moedas
-else if(selecao === "Dólar USA" && resultado === "Libra"){
-    valorEmReal = (valorConverter * rates.USD) /rates.GBP;
-     
-}else if (selecao === "Real" && resultado === "Libra"){
-    valorEmReal = valorConverter / rates.GBP;
-     
-}else if (selecao === "Euro" && resultado === "Libra"){
-     valorEmReal = (valorConverter * rates.EUR) * rates.GBP;     }
-
-//Pegando os valores e convertendo
-var elementoValorConvertido=document.getElementById("valorConvertido");//pega a informacao do id ValorConvertido
-var valorConvertido = valorEmReal; //indica o resultado da conversao
-elementoValorConvertido.value = valorConvertido //preecnhe o campo do id valorConvertido com o resultado
-
-}
+    document.getElementById("valor").onchange = Converter;
+    document.getElementById("selecao").onchange = Converter;
+    document.getElementById("convertido").onchange = Converter;
