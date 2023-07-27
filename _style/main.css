@@ -9,7 +9,7 @@
 }
 
 body{
-    background-image: url(/_img/fundo.png);
+    background-image: url(_img/fundo.png);
     background-size: 211vh;
     background-repeat: no-repeat;
     background-position: absolute right;
